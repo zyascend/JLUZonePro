@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_share"
+        android:title="分享课表"
+        android:showAsAction="never"
+        android:orderInCategory="90"/>
+
+    <item
+        android:id="@+id/action_info"
+        android:title="单双周说明"
+        android:showAsAction="never"
+        android:orderInCategory="90"/>
+
+    <item
+        android:icon="@drawable/ic_schedule_change"
+        android:id="@+id/action_change_year"
+        android:title="切换学年"
+        app:showAsAction="always"
+        android:orderInCategory="90"/>
+
+
+</menu>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    style="@style/ScheduleCard"
+    android:layout_width="150dp"
+    android:id="@+id/cardView"
+    app:cardBackgroundColor="@color/colorPrimary"
+    android:layout_height="110dp"
+    app:cardCornerRadius="4dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <TextView
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/name"
+            tools:text="微机原理与接口技术"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/place"
+            android:text="逸夫楼A511"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/teacher"
+            android:text="张老师  7-12周"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_alarm"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:textColor="@android:color/white"
+            android:text="注：单双周不同"
+            android:textSize="12sp"
+            android:layout_gravity="end|bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>

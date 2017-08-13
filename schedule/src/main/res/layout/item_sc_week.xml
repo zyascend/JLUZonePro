@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/schedule_tab_back"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        style="@style/schedule_week_text"
+        android:text="周一"/>
+
+    <TextView
+        style="@style/schedule_week_text"
+        android:text="周二"/>
+    <TextView
+        style="@style/schedule_week_text"
+        android:text="周三"/>
+
+    <TextView
+        style="@style/schedule_week_text"
+        android:text="周四"/>
+    <TextView
+        style="@style/schedule_week_text"
+        android:text="周五"/>
+
+    <TextView
+        style="@style/schedule_week_text"
+        android:text="周六"/>
+    <TextView
+        style="@style/schedule_week_text"
+        android:text="周日"/>
+
+</LinearLayout>

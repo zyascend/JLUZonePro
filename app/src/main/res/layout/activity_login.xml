@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card="http://schemas.android.com/apk/res-auto"
+        android:background="@color/loginBack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@+id/id_tv_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardview"
+            card:cardElevation="@dimen/cardview_default_elevation"
+            card:cardCornerRadius="@dimen/cardview_default_radius"
+            card:cardBackgroundColor="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp">
+
+                <EditText
+                    android:textColor="@android:color/black"
+                    android:id="@+id/id_et_user"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColorHint="@color/textHint"
+                    android:hint="@string/hint_user"/>
+
+                <EditText
+                    android:textColor="@android:color/black"
+                    android:id="@+id/id_et_passWord"
+                    android:inputType="numberPassword"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColorHint="@color/textHint"
+                    android:hint="@string/hint_password"/>
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/id_cb_rememberPassWord"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rememberPassWord"
+                        android:textSize="13sp"
+                        android:checked="true"
+                        android:textColor="@color/primaryText"/>
+                    <CheckBox
+                        android:id="@+id/id_cb_antoLogin"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="自动登录"
+                        android:textSize="13sp"
+                        android:checked="false"
+                        android:textColor="@color/primaryText"/>
+                    <CheckBox
+                        android:id="@+id/id_cb_outside"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="校外登陆"
+                        android:textSize="13sp"
+                        android:checked="false"
+                        android:textColor="@color/primaryText"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/id_btn_login"
+                    android:text="登录"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-thin"
+                    android:textColor="@android:color/white"
+                    android:background="@color/loginBack"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/id_tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-thin"
+        android:text="@string/welcome"
+        android:layout_marginTop="97dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/cardview" />
+
+    <Button
+        android:id="@+id/btn_over_login"
+        android:text="跳过登录"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardview"
+        android:layout_alignEnd="@+id/cardview" />
+</RelativeLayout>

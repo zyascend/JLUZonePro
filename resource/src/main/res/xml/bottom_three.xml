@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_main"
+        icon="@drawable/ic_main"
+        title="主页"
+        barColorWhenSelected="#005689" />
+    <tab
+        id="@+id/tab_explore"
+        icon="@drawable/ic_explore"
+        title="查询"
+        barColorWhenSelected="#64868E" />
+    <tab
+        id="@+id/tab_user"
+        icon="@drawable/ic_me"
+        title="我"
+        barColorWhenSelected="#007CB9" />
+</tabs>

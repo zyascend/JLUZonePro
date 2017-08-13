@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/custom_dialog_back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--android:background="@color/colorPrimary"-->
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/title"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        tools:text="title"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <FrameLayout
+        android:minHeight="100dp"
+        android:padding="10dp"
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:gravity="center"
+            android:id="@+id/btn_nage"
+            android:textSize="15sp"
+            android:background="@drawable/dialog_back_btn_cancel"
+            android:textColor="@android:color/white"
+            android:text="取消"
+            android:padding="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:id="@+id/btn_positive"
+            android:textSize="15sp"
+            android:background="@drawable/dialog_back_btn_sure"
+            android:textColor="@android:color/white"
+            android:text="确定"
+            android:padding="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

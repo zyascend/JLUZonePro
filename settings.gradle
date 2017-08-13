@@ -1,1 +1,1 @@
-include ':app', ':common', ':schedule', ':score', ':news'
+include ':app', ':common', ':schedule', ':score', ':news', ':map', ':tv'

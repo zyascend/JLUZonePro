@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="#39438a"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1.7"
+        android:layout_height="0dp">
+
+        <ImageView
+            android:id="@+id/btn_share"
+            android:layout_margin="10dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_margin="10dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_close_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/deadLine"
+            android:layout_gravity="center_horizontal"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:text="(截止2017-03-30)"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/t1" />
+
+        <TextView
+            android:id="@+id/t1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:text="平均绩点成绩"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+             />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/firstGp_view"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/image1"
+            android:text="首次平均绩点"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/firstGp_text"
+            tools:text="2.68"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_alignBottom="@+id/image1"
+            android:layout_toEndOf="@+id/image1" />
+
+        <ImageView
+            android:scaleType="center"
+            android:src="@drawable/ic_statics_firstgp"
+            android:id="@+id/image1"
+            android:background="@drawable/circle_drawable_yellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/firstScore_view"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/image2"
+            android:text="首次平均成绩"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/firstScore_text"
+            tools:text="77.92"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_alignBottom="@+id/image2"
+            android:layout_toEndOf="@+id/image2" />
+
+        <ImageView
+            android:scaleType="center"
+            android:src="@drawable/ic_statics_firstscore"
+            android:id="@+id/image2"
+            android:background="@drawable/circle_drawable_orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bestGp_view"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/image3"
+            android:text="最好平均绩点"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/bestGp_text"
+            tools:text="2.72"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_alignBottom="@+id/image3"
+            android:layout_toEndOf="@+id/image3" />
+
+        <ImageView
+            android:scaleType="center"
+            android:src="@drawable/ic_statics_bestgp"
+            android:id="@+id/image3"
+            android:background="@drawable/circle_drawable_purple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bestScore_view"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/image4"
+            android:text="最好平均成绩"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/bestScore_text"
+            tools:text="78.79"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_alignBottom="@+id/image4"
+            android:layout_toEndOf="@+id/image4" />
+
+        <ImageView
+            android:scaleType="center"
+            android:src="@drawable/ic_statics_bestscore"
+            android:id="@+id/image4"
+            android:background="@drawable/circle_drawable_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

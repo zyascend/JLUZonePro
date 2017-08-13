@@ -1,10 +1,10 @@
 package com.zyascend.JLUZonePro.explore;
 
 import android.content.Context;
-import android.content.Intent;
 import android.widget.Toast;
 
 import jluzonepro.zyascend.com.common.base.BasePresenter;
+import jluzonepro.zyascend.com.common.router.RouterUtils;
 
 
 /**
@@ -26,11 +26,14 @@ public class ExplorePresenter extends BasePresenter<ExploreContract.View> implem
     @Override
     public void enterSchedule() {
 //        ActivityUtils.enterActivity(mContext, ScheduleActivity.class);
+        RouterUtils.navigation(RouterUtils.SCHEDULE_MAIN);
     }
 
     @Override
     public void enterScore() {
 //        ActivityUtils.enterActivity(mContext,ScoreActivity.class);
+        RouterUtils.navigation(RouterUtils.SCORE_MAIN);
+
     }
 
     @Override

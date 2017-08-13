@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -17,6 +19,7 @@ import jluzonepro.zyascend.com.common.R2;
 import jluzonepro.zyascend.com.common.base.BaseActivity;
 import jluzonepro.zyascend.com.common.entity.Score;
 import jluzonepro.zyascend.com.common.entity.ScoreDetail;
+import jluzonepro.zyascend.com.common.router.RouterUtils;
 import jluzonepro.zyascend.com.common.utils.ActivityUtils;
 import jluzonepro.zyascend.com.common.utils.PieChart;
 
@@ -25,7 +28,7 @@ import jluzonepro.zyascend.com.common.utils.PieChart;
  *
  * Created by Administrator on 2016/11/4.
  */
-
+@Route(path = RouterUtils.SHARE_SCORE)
 public class ShareScoreActivity extends BaseActivity<ShareContract.View, SharePresenter>
         implements ShareContract.View {
 

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/toolbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.CardView
+                android:layout_margin="10dp"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_margin="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        tools:text="微机原理与接口技术"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/score"
+                        android:layout_marginTop="20dp"
+                        android:layout_below="@+id/tv_name"
+                        android:id="@+id/tv_score"
+                        android:textSize="18sp"
+                        android:textColor="@color/material_amber"
+                        tools:text="80"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_below="@+id/tv_name"
+                        android:id="@+id/tv_gpoint"
+                        android:textSize="18sp"
+                        android:textColor="@color/material_amber"
+                        tools:text="3.5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:textColor="@android:color/black"
+                        android:layout_below="@+id/tv_score"
+                        android:id="@+id/fenbu"
+                        android:textSize="15sp"
+                        android:layout_width="wrap_content"
+                        android:text="本班级成绩分布"
+                        android:layout_height="wrap_content" />
+                    <com.zyascend.JLUZone.utils.PieChart
+                        android:background="@android:color/white"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/fenbu"
+                        android:id="@+id/pie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:textSize="15sp"
+                        android:text="Created by:"
+                        android:layout_marginEnd="5dp"
+                        android:layout_toStartOf="@+id/tv_stuName"
+                        android:layout_below="@+id/pie"
+                        android:id="@+id/createrBy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:textSize="15sp"
+                        android:text="张扬"
+                        android:textColor="@color/material_amber"
+                        android:layout_below="@+id/pie"
+                        android:id="@+id/tv_stuName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/score"
+                        android:textSize="15sp"
+                        android:text="获得分数:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/tv_score"
+                        android:layout_alignBottom="@+id/tv_score"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:id="@+id/gpoint"
+                        android:textSize="15sp"
+                        android:text="获得绩点:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/tv_gpoint"
+                        android:layout_alignBottom="@+id/tv_gpoint"
+                        android:layout_alignEnd="@+id/createrBy" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_info"
+                android:textColor="@color/material_blue_gray"
+                android:text="查看声明"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="start"
+                android:textSize="13sp"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.CardView
+                android:visibility="gone"
+                android:id="@+id/card_info"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_info"
+                    android:textSize="15sp"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

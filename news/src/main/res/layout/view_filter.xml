@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageButton
+        android:id="@+id/iv_close"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_close"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_edit"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:text="编辑"
+                android:background="@drawable/btn_back"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_width="50dp"
+                android:layout_height="30dp" />
+
+            <me.gujun.android.taggroup.TagGroup
+                android:layout_margin="10dp"
+                android:layout_below="@+id/text_up"
+                style="@style/TagGroup"
+                android:id="@+id/tg_now"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/text_up"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:text="选择发布者： "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btn_edit"
+                android:layout_alignParentStart="true" />
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tg_now"
+                android:id="@+id/text_down"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:text="已屏蔽发布者： "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true" />
+
+            <me.gujun.android.taggroup.TagGroup
+                android:layout_margin="10dp"
+                android:layout_below="@+id/text_down"
+                style="@style/TagGroup"
+                android:id="@+id/tg_hide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

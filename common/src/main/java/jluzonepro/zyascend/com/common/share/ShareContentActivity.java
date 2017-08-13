@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zzhoujay.richtext.RichText;
 
 import butterknife.BindView;
@@ -21,12 +22,13 @@ import butterknife.OnClick;
 import jluzonepro.zyascend.com.common.R;
 import jluzonepro.zyascend.com.common.R2;
 import jluzonepro.zyascend.com.common.base.BaseActivity;
+import jluzonepro.zyascend.com.common.router.RouterUtils;
 
 /**
  *
  * Created by Administrator on 2016/10/22.
  */
-
+@Route(path = RouterUtils.SHARE_CONTENT)
 public class ShareContentActivity extends BaseActivity<ShareContract.View, SharePresenter>
         implements ShareContract.View {
 

@@ -1,17 +1,21 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 
-android{
+android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.zyascend.jluzone.app"
+//        // 作为library时不能有applicationId,只有作为一个独立应用时才能够如下设置
+//        if (isDebug.toBoolean()) {
+//            applicationId "com.wuxiaolong.module1"
+//        }
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         //所有资源必须以此 prefix 开头，否则会报错
-        //resourcePrefix "app_"
+        //resourcePrefix "module1_"
         //arouter
         javaCompileOptions {
             annotationProcessorOptions {
@@ -25,24 +29,18 @@ android{
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':common')
-    compile project(':schedule')
-    compile project(':score')
-    compile project(':news')
-    compile project(':tv')
-    compile project(':map')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
 
+    //依赖公共库
+    compile project(':common')
     //arouter
     annotationProcessor rootProject.ext.arouterCompiler
 
     //butterknife
     annotationProcessor rootProject.ext.butterknifeCompiler
 
-    compile rootProject.ext.bottombar
-    compile rootProject.ext.banner
-    compile rootProject.ext.circleimageview
 }

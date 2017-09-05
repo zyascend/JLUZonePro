@@ -111,10 +111,6 @@ public class NewsFragment extends BaseFragment<NewsContract.View, NewsPresenter>
         return R.layout.fragment_recycler;
     }
 
-
-
-
-
     @Override
     protected void initViews() {
 
@@ -174,32 +170,35 @@ public class NewsFragment extends BaseFragment<NewsContract.View, NewsPresenter>
 
     @Override
     public void loadNews(List<News> newsList) {
-
+        swipeRefreshLayout.setRefreshing(false);
         if (!ActivityUtils.NotNullOrEmpty(newsList)){
             showFailure();
             return;
         }
         mHideList = mPresenter.getHideList();
         Log.d(TAG, "loadNews: hide Size = "+ mHideList.size());
-        swipeRefreshLayout.setRefreshing(false);
         for (int i = 0; i < newsList.size(); i++) {
             if (ActivityUtils.NotNullOrEmpty(mHideList) && mHideList.contains(newsList.get(i).getEditor())){
                 newsList.remove(i);
             }
         }
+        Log.d(TAG, "loadNews: size = "+ newsList.size());
+
         mList.addAll(newsList);
         adapter.setList(newsList);
     }
 
     @Override
     public void showFailure() {
-        Toast.makeText(getActivity(), "加载失败，请检查网络", Toast.LENGTH_SHORT).show();
+        swipeRefreshLayout.setRefreshing(false);
+        Toast.makeText(getActivity(), "加载失败，请检查网络 或 数据源变动", Toast.LENGTH_SHORT).show();
     }
-
 
     @Override
     public void loadContent(String content) {
-
+        if (swipeRefreshLayout != null){
+            swipeRefreshLayout.setRefreshing(false);
+        }
     }
 
     private void showFilter() {
@@ -303,7 +302,6 @@ public class NewsFragment extends BaseFragment<NewsContract.View, NewsPresenter>
             }
         }
     }
-
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

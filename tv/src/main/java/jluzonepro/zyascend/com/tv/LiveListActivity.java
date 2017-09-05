@@ -14,6 +14,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import jluzonepro.zyascend.com.common.base.BaseActivity;
+import jluzonepro.zyascend.com.common.base.BaseReAdapter;
 import jluzonepro.zyascend.com.common.entity.LiveChannel;
 import jluzonepro.zyascend.com.common.router.RouterUtils;
 
@@ -98,11 +99,11 @@ public class LiveListActivity extends BaseActivity<LiveContract.View, LivePresen
 
         LiveChannel channel = mList.get(position);
         if (channel == null)return;
-        PlayActivity.init(this)
-                .setTitle(channel.getNme())
-                .setUrl(channel.getLink())
-                .isLive(true)
-                .play();
+//        PlayActivity.init(this)
+//                .setTitle(channel.getNme())
+//                .setUrl(channel.getLink())
+//                .isLive(true)
+//                .play();
 
     }
 }

@@ -9,6 +9,7 @@ import jluzonepro.zyascend.com.common.entity.News;
 import jluzonepro.zyascend.com.common.model.data.DataUtils;
 import jluzonepro.zyascend.com.common.model.net.JsoupListener;
 import jluzonepro.zyascend.com.common.model.net.JsoupUtils;
+import jluzonepro.zyascend.com.common.utils.ActivityUtils;
 
 import java.util.List;
 
@@ -102,7 +103,9 @@ public class NewsPresenter extends BasePresenter<NewsContract.View>
 
     @Override
     public void onSuccess(List<News> newsList) {
-
+        if (!ActivityUtils.NotNullOrEmpty(newsList)){
+            return;
+        }
         for (News news : newsList) {
             mData.saveNews(news);
         }
@@ -116,7 +119,7 @@ public class NewsPresenter extends BasePresenter<NewsContract.View>
     @Override
     public void onFailure(Exception e) {
         Log.d(TAG, "onFailure: "+e.toString());
-
+        mViewListener.showFailure();
     }
 
 

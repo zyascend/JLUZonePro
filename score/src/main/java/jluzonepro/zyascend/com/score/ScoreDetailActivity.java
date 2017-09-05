@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -164,7 +165,7 @@ public class ScoreDetailActivity extends BaseActivity<ScoreContract.View, ScoreP
 
     @Override
     public void showFailure() {
-//        Toast.makeText(this, "加载失败，请检查网络后重试", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "加载失败，请检查网络后重试", Toast.LENGTH_SHORT).show();
     }
 
     @Override

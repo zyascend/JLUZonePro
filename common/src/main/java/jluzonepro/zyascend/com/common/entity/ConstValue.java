@@ -33,7 +33,7 @@ public class ConstValue {
     public static final int SCORE_TYPE_YEAR = 2;
 
     public static final String JWC_URL = "http://jwc.jlu.edu.cn/zxzx/ksap.htm";
-    public static final String XIAO_URL = "http://oa.jlu.edu.cn/list.asp?s=1&page=";
+    public static final String XIAO_URL = "http://jwc.jlu.edu.cn/zxzx/tzgg.htm";
     public static final String URL_JOB_CONTENT = "http://jdjyw.jlu.edu.cn/index.php?r=app/recruit/details&id=";
 
     public static final String TAG_XIAOZHAO = "xiaozhao";

@@ -45,6 +45,7 @@ import okhttp3.OkHttpClient;
 public class HttpManager implements HttpManagerListener {
 
     private static final String TAG = "TAG_HTTPUTILS";
+    private static final String MOUSE_PATH = "dFgABdAAAOdAQCddBAC0cBgDEbCwDWbDwDmaEgD2aFgEHaFwEYZGAEoZGQJlZIQKYZJAKsZKQK5ZLQLJZMwLaZOwLqaPQL7aQQMMaQwMcaRwMtaSQM%2BaTQNPaUgNfaWQNwaXwOAaZgORabQOjadAOyaewPDagwPUajAPkalAP1amQQHanQQXaogQoapgQ5aqgRJarwRaauwR%2BavgSMawQSeawgTJawwTWaxATfaxQURaxgUmaxwUzayAVDayQVWaywVta0QWJa0wWXa1AWpa1QW%2Ba1gXJa2AXga2gXua3AX7Z4AYgZ4QY2Z4gY%2BZ5AZOZ5wZvfXARi";
     private static HttpManager INSTANCE;
     private Handler mHandler;
     private OkHttpClient mHttpClient;
@@ -103,6 +104,7 @@ public class HttpManager implements HttpManagerListener {
                 .url(url)
                 .addParams("j_username",user)
                 .addParams("j_password",md5PassWord)
+                .addParams("mousePath",MOUSE_PATH)
                 .tag(tag)
                 .call(new ResponseCallBack() {
                     @Override

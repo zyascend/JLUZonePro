@@ -24,7 +24,7 @@ import jluzonepro.zyascend.com.news.R;
  *
  * Created by Administrator on 2016/8/4.
  */
-@Route(path = RouterUtils.JOB_MAIN)
+@Route(path = RouterUtils.NEWS_MAIN)
 public class NewsActivity extends BaseFragmentActivity {
 
 
@@ -42,12 +42,12 @@ public class NewsActivity extends BaseFragmentActivity {
             @Override
             public Fragment getItem(int position) {
                 switch (position){
-                    case 0:
-                        return NewsFragment.getInstance("jwc");
                     case 1:
-                        return NewsFragment.getInstance("xiao");
+                        return NewsFragment.getInstance(NewsPresenter.TAG_JWC);
+                    case 0:
+                        return NewsFragment.getInstance(NewsPresenter.TAG_XIAO);
                     default:
-                        return NewsFragment.getInstance("jwc");
+                        return NewsFragment.getInstance(NewsPresenter.TAG_JWC);
                 }
             }
 
@@ -59,9 +59,9 @@ public class NewsActivity extends BaseFragmentActivity {
             @Override
             public CharSequence getPageTitle(int position) {
                 switch (position){
-                    case 0:
-                        return "教务通知";
                     case 1:
+                        return "教务通知";
+                    case 0:
                         return "校内通知";
                     default:
                         return "教务通知";

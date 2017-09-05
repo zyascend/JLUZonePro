@@ -39,6 +39,8 @@ public class ExplorePresenter extends BasePresenter<ExploreContract.View> implem
     @Override
     public void enterNews() {
 //        ActivityUtils.enterActivity(mContext, NewsActivity.class);
+        RouterUtils.navigation(RouterUtils.NEWS_MAIN);
+
     }
 
     @Override
@@ -49,6 +51,8 @@ public class ExplorePresenter extends BasePresenter<ExploreContract.View> implem
     @Override
     public void enterJob() {
 //        ActivityUtils.enterActivity(mContext, JobActivity.class);
+        RouterUtils.navigation(RouterUtils.JOB_MAIN);
+
     }
 
     @Override
@@ -64,7 +68,7 @@ public class ExplorePresenter extends BasePresenter<ExploreContract.View> implem
     @Override
     public void enterLive() {
 //        ActivityUtils.enterActivity(mContext, LiveListActivity.class);
-
+        RouterUtils.navigation(RouterUtils.TV_MAIN);
     }
 
     public void enterMap(String map) {

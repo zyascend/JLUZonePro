@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import butterknife.BindView;
-import jluzonepro.zyascend.com.common.R;
 import jluzonepro.zyascend.com.common.base.BaseReAdapter;
 import jluzonepro.zyascend.com.common.entity.News;
 import jluzonepro.zyascend.com.common.utils.ActivityUtils;
@@ -16,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
+import jluzonepro.zyascend.com.news.R;
 import jluzonepro.zyascend.com.news.R2;
 
 /**
@@ -33,8 +33,7 @@ public class NewsAdapter extends BaseReAdapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_news, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_info, parent, false);
         return new NewsViewHolder(view);
     }
 

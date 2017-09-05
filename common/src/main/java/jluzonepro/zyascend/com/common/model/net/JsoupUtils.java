@@ -6,11 +6,13 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,9 +61,12 @@ public class JsoupUtils implements JsoupListener {
 
     @Override
     public void getSchoolNews(NewsCallBack newsCallBack,int page) {
+        Log.d(TAG, "getSchoolNews: ");
         mTag = TAG_XIAO;
         mNewsListCallback = newsCallBack;
-        new NewsListTask().execute(ConstValue.XIAO_URL + page);
+        mNewsListCallback.onFailure(new Exception("数据源变动，无法解析"));
+//        return;
+//        new NewsListTask().execute(ConstValue.XIAO_URL + page);
     }
 
     @Override
@@ -90,65 +95,11 @@ public class JsoupUtils implements JsoupListener {
         @Override
         protected List<News> doInBackground(String... params) {
             Log.d(TAG, "doInBackground: ");
-            List<News> newses = null;
-            newses = loadJwcNews(params[0]);
-//            if (TextUtils.equals(mTag, NewsPresenter.TAG_JWC)){
-//
-//            }else if(TextUtils.equals(mTag,NewsPresenter.TAG_XIAO)){
-//                newses = loadXiaoNews(params[0]);
-//            }
-
-            return newses;
-        }
-
-        private List<News> loadXiaoNews(String param) {
-
-            Log.d(TAG, "loadJwcNews: hostUrl = "+param);
-            List<News> list = new ArrayList<>();
-            String title = "";
-            String date = "";
-            String editor = "";
-            String url = "";
-            long id = 0;
-            try{
-                Document document = Jsoup.connect(param).get();
-                Element div = document.getElementById("listContent");
-                Element table = div.getElementsByTag("table").first();
-                Elements tr = table.getElementsByTag("tbody").first().getElementsByTag("tr");
-                Log.d(TAG, "tr =  "+tr.size());
-                for (Element e : tr){
-
-                    Elements td = e.getElementsByTag("td");
-                    title = td.get(0).getElementsByTag("a").attr("title");
-                    url = td.get(0).getElementsByTag("a").attr("href");
-                    date = td.get(2).text();
-                    editor = td.get(1).getElementsByTag("a").text();
-                    id = Long.parseLong(url.split("/")[2].replace("show","").replace(".html",""));
-
-
-                    url = "http://oa.jlu.edu.cn/"+url;
-                    News news = new News(id,title,editor,date,"",url);
-                    list.add(news);
-
-//                    Log.d(TAG, "id = "+id);
-//                    Log.d(TAG, "title = "+title);
-//                    Log.d(TAG, "url = "+url);
-//                    Log.d(TAG, "date = "+date);
-//                    Log.d(TAG, "editor = "+editor);
-
-                }
-
-            }catch (Exception e){
-                Log.d(TAG, "error  = " + e.toString());
-                onGetListError(e);
-            }
-
-            return list;
+            return loadJwcNews(params[0]);
         }
 
         private List<News> loadJwcNews(String param) {
 
-            Log.d(TAG, "loadJwcNews: hostUrl = "+param);
             List<News> list = new ArrayList<>();
             String title = "";
             String date = "";
@@ -156,40 +107,46 @@ public class JsoupUtils implements JsoupListener {
             String url = "";
             long id = 0;
 
-            try {
+            String host = "http://jwc.jlu.edu.cn";
 
-                Document document = Jsoup.connect(ConstValue.JWC_URL).get();
-//                Elements content = document.getElementsByAttributeValue("id","content");
-//                Elements ul= content.first().getElementsByTag("ul");
-                Elements clearFix = document.getElementsByClass("clearfix");
-                Log.d(TAG, "loadJwcNews: clearFix = "+clearFix.toString());
-                Elements li = clearFix.first().getElementsByTag("li");
-                Log.d(TAG, "loadJwcNews: li = "+li.toString());
+            try {
+                Document document = getDocument(param);
+                Element clearFix = document.getElementsByClass("clearfix").last();
+                Log.d(TAG, "loadJwcNews: clearFix = "+clearFix.text());
+                Elements li = clearFix.getElementsByTag("li");
                 for (Element e : li){
+
                     date = e.getElementsByClass("time").text();
                     title = e.getElementsByTag("a").first().attr("title");
                     url = e.getElementsByTag("a").first().attr("href");
-                    //处理数据
-                    Log.d(TAG, "loadJwcNews: date = "+date+"/n");
-                    Log.d(TAG, "loadJwcNews: title = "+title+"/n");
-                    Log.d(TAG, "loadJwcNews: url = "+url+"/n");
-                    //处理date
 
-//                    date = date.replaceAll("\\s","");
+                    //处理数据
+                    //../info/1051/2291.htm
+                    //url = http://jwc.jlu.edu.cn/info/1050/2441.htm
+                    url = host+url.replace("..","");
+                    date = date.replace("[","").replace("]","");
+
+                    Log.d(TAG, "date = "+date);
+                    Log.d(TAG, "title = "+title);
+                    Log.d(TAG, "url = "+url);
+
+                    //处理date
                     News news = new News(id,title,editor,date,"",url);
                     list.add(news);
-
                 }
             }catch (Exception e){
                 onGetListError(e);
+                Log.e(TAG, "loadJwcNews: "+e.toString());
             }
             Log.d(TAG, "loadJwcNews: "+ list.size());
             return list;
         }
+
+
+
         @Override
         protected void onPostExecute(List<News> newses) {
             super.onPostExecute(newses);
-
             if (mNewsListCallback != null){
                 mNewsListCallback.onSuccess(newses);
             }
@@ -197,25 +154,43 @@ public class JsoupUtils implements JsoupListener {
 
         }
     }
+
+    private Document getDocument(String param) throws IOException {
+//            //获取请求连接
+//            Connection con = Jsoup.connect(param);
+//            //请求头设置，特别是cookie设置
+//            con.header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+//            con.header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36");
+//            con.header("Referer", "http://jwc.jlu.edu.cn/zxzx/ksap.htm");
+//            con.header("Cookie", "lzstat_uv=19835556632710270647|2434659; _ga=GA1.3.1097107285.1464624067; JSESSIONID=60C3B42DDA3714D93163E95A145E9217");
+//            //解析请求结果
+//            Document doc=con.get();
+
+        Document document = Jsoup.connect(param)
+                .userAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36")
+                .referrer("http://jwc.jlu.edu.cn/zxzx/ksap.htm")
+                .cookie("Cookie","lzstat_uv=19835556632710270647|2434659; _ga=GA1.3.1097107285.1464624067; JSESSIONID=60C3B42DDA3714D93163E95A145E9217")
+                .get();
+        Log.d(TAG, "loadJwcNews: doc = "+document.text());
+        return document;
+    }
+
     private class NewsContentTask extends AsyncTask<String,Void,String>{
         @Override
         protected String doInBackground(String... params) {
-            String conent = null;
-            if (TextUtils.equals(mTag,TAG_XIAO_CONTENT)){
-                conent = loadXiaoContent(params[0]);
-            }else if (TextUtils.equals(mTag,TAG_JWC_CONTENT)){
-                conent = loadJWcContent(params[0]);
-            }
-            return conent;
+            Log.d(TAG, "doInBackground: content");
+            return loadJWcContent(params[0]);
         }
 
         private String loadJWcContent(String param) {
             String content = "";
             try {
-                Document document = Jsoup.connect(param).get();
-                Elements elements = document.getElementsByClass("content");
-                content = elements.toString();
-                Log.d(TAG, "getContent: "+elements.toString());
+                Document document = getDocument(param);
+                Element element = document.getElementsByAttributeValue("name","_newscontent_fromname").first();
+                if (element != null){
+                    content = element.toString();
+                    Log.d(TAG, "getContent: "+element.toString());
+                }
             }catch (Exception e){
                 onGetContentError(e);
             }

@@ -68,12 +68,13 @@ public class ExplorePresenter extends BasePresenter<ExploreContract.View> implem
     @Override
     public void enterLive() {
 //        ActivityUtils.enterActivity(mContext, LiveListActivity.class);
-        RouterUtils.navigation(RouterUtils.TV_MAIN);
+//        RouterUtils.navigation(RouterUtils.TV_MAIN);
     }
 
     public void enterMap(String map) {
 //        Intent intent = new Intent(mContext,MapActivity.class);
 //        intent.putExtra(INTENT_MAP,map);
 //        mContext.startActivity(intent);
+        Toast.makeText(mContext, "更多功能开发中...", Toast.LENGTH_SHORT).show();
     }
 }
